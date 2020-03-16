@@ -1,39 +1,72 @@
-const posts = [
-  { id: "p1", title: "post1", body: "body1", published: true, userId: "u1" },
-  { id: "p2", title: "post2", body: "body2", published: false, userId: "u2" },
-  { id: "p3", title: "post3", body: "body3", published: true, userId: "u1" },
-  { id: "p4", title: "post24", body: "body4", published: false, userId: "u2" }
-];
-
 const users = [
   {
-    id: "u1",
-    name: "Paisit",
-    email: "test@test.com",
-    age: 37
+    id: '1',
+    name: 'Andrew',
+    email: 'andrew@example.com',
+    age: 27,
   },
   {
-    id: "u2",
-    name: "Paisit2",
-    email: "test2@test.com",
-    age: 37
-  }
-];
+    id: '2',
+    name: 'Sarah',
+    email: 'sarah@example.com',
+  },
+  {
+    id: '3',
+    name: 'Mike',
+    email: 'mike@example.com',
+  },
+]
+
+const posts = [
+  {
+    id: '10',
+    title: 'GraphQL 101',
+    body: 'This is how to use GraphQL...',
+    published: true,
+    author: '1',
+  },
+  {
+    id: '11',
+    title: 'GraphQL 201',
+    body: 'This is an advanced GraphQL post...',
+    published: false,
+    author: '1',
+  },
+  {
+    id: '12',
+    title: 'Programming Music',
+    body: '',
+    published: true,
+    author: '2',
+  },
+]
 
 const comments = [
   {
-    id: "c1",
-    text: "comment1",
-    author: "u1",
-    postId: "p1"
+    id: '102',
+    text: 'This worked well for me. Thanks!',
+    author: '3',
+    post: '10',
   },
   {
-    id: "c2",
-    text: "comment2",
-    author: "u1",
-    postId: "p2"
-  }
-];
+    id: '103',
+    text: 'Glad you enjoyed it.',
+    author: '1',
+    post: '10',
+  },
+  {
+    id: '104',
+    text: 'This did no work.',
+    author: '2',
+    post: '11',
+  },
+  {
+    id: '105',
+    text: 'Nevermind. I got it to work.',
+    author: '1',
+    post: '12',
+  },
+]
 
 const db = {
   users,
