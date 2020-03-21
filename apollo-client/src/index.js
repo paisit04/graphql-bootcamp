@@ -1,7 +1,7 @@
 import ApolloBoost, { gql } from "apollo-boost";
 
 const client = new ApolloBoost({
-  uri: "http://localhost:4000"
+  uri: "http://graphql.test/graphql"
 });
 
 const getUsers = gql`
@@ -26,31 +26,14 @@ client
 </div> `;
     });
     document.getElementById("users").innerHTML = html;
-  });
-
-const getPosts = gql`
-  query {
-    posts {
-      title
-      author {
-        name
-      }
-    }
-  }
-`;
-
-client
-  .query({
-    query: getPosts
-  })
-  .then(response => {
+  }).catch(err => {
     let html = "";
-    response.data.posts.forEach(post => {
+    err.graphQLErrors.forEach(error => {
       html += `
 <div>
-    <h3>${post.title}</h3>
-    <h4>${post.author.name}</h4>
+    <h3>Error ${error.message}</h3>
 </div> `;
     });
-    document.getElementById("posts").innerHTML = html;
+    document.getElementById("users").innerHTML = html;
   });
+
